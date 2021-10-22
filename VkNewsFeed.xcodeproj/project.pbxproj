@@ -15,6 +15,10 @@
 		752692592720431C004CC2F2 /* vk-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 752692582720431C004CC2F2 /* vk-ios-sdk */; };
 		753704B42722C18D0047A1C7 /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753704B32722C18D0047A1C7 /* FeedViewController.storyboard */; };
 		753704B62722C1CE0047A1C7 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753704B52722C1CE0047A1C7 /* FeedViewController.swift */; };
+		753704BA2722DB100047A1C7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753704B92722DB100047A1C7 /* NetworkService.swift */; };
+		753704BC2722DBF40047A1C7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753704BB2722DBF40047A1C7 /* API.swift */; };
+		753704BF27230B470047A1C7 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753704BE27230B470047A1C7 /* FeedResponse.swift */; };
+		753704C127230E090047A1C7 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753704C027230E090047A1C7 /* NetworkDataFetcher.swift */; };
 		757A1E2B27216C49007D9C06 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A1E2A27216C49007D9C06 /* AuthService.swift */; };
 		757A1E2E27216E4F007D9C06 /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 757A1E2D27216E4F007D9C06 /* AuthViewController.storyboard */; };
 /* End PBXBuildFile section */
@@ -42,6 +46,10 @@
 		7526924727203DFD004CC2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		753704B32722C18D0047A1C7 /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
 		753704B52722C1CE0047A1C7 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		753704B92722DB100047A1C7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		753704BB2722DBF40047A1C7 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		753704BE27230B470047A1C7 /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
+		753704C027230E090047A1C7 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		757A1E2A27216C49007D9C06 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		757A1E2D27216E4F007D9C06 /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,10 +115,22 @@
 			path = AuthViewController;
 			sourceTree = "<group>";
 		};
+		753704BD27230B2C0047A1C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				753704BE27230B470047A1C7 /* FeedResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		757A1E2C27216C4E007D9C06 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				753704BD27230B2C0047A1C7 /* Models */,
 				757A1E2A27216C49007D9C06 /* AuthService.swift */,
+				753704B92722DB100047A1C7 /* NetworkService.swift */,
+				753704C027230E090047A1C7 /* NetworkDataFetcher.swift */,
+				753704BB2722DBF40047A1C7 /* API.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -193,11 +213,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				753704BF27230B470047A1C7 /* FeedResponse.swift in Sources */,
 				7526923E27203DFC004CC2F2 /* AuthViewController.swift in Sources */,
 				7526923A27203DFC004CC2F2 /* AppDelegate.swift in Sources */,
 				753704B62722C1CE0047A1C7 /* FeedViewController.swift in Sources */,
 				7526923C27203DFC004CC2F2 /* SceneDelegate.swift in Sources */,
+				753704BA2722DB100047A1C7 /* NetworkService.swift in Sources */,
+				753704C127230E090047A1C7 /* NetworkDataFetcher.swift in Sources */,
 				757A1E2B27216C49007D9C06 /* AuthService.swift in Sources */,
+				753704BC2722DBF40047A1C7 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
