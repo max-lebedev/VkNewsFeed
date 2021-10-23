@@ -9,26 +9,38 @@
 import UIKit
 
 enum Newsfeed {
-   
-  enum Model {
-    struct Request {
-      enum RequestType {
-        case some
-        case getFeed
-      }
+    
+    enum Model {
+        struct Request {
+            enum RequestType {
+                case getNewsFeed
+            }
+        }
+        struct Response {
+            enum ResponseType {
+                case presentNewsfeed(feed: FeedResponse)
+            }
+        }
+        struct ViewModel {
+            enum ViewModelData {
+                case displayNewsfeed(feedViewModel: FeedViewModel)
+            }
+        }
     }
-    struct Response {
-      enum ResponseType {
-        case some
-        case presentNewsFeed
-      }
-    }
-    struct ViewModel {
-      enum ViewModelData {
-        case some
-        case displayNewsfeed
-      }
-    }
-  }
-  
 }
+struct FeedViewModel {
+    struct Cell: FeedCellViewModel {
+        var iconUrlString: String
+        var name: String
+        var date: String
+        var text: String?
+        var likes: String?
+        var comments: String?
+        var shares: String?
+        var views: String?
+    }
+    
+    let cells: [Cell]
+}
+
+
