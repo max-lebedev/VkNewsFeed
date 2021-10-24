@@ -28,6 +28,7 @@
 		75E70DD827241F1A00B7E964 /* NewsfeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E70DD727241F1A00B7E964 /* NewsfeedViewController.storyboard */; };
 		75E70DDB272425BB00B7E964 /* NewsfeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E70DDA272425BB00B7E964 /* NewsfeedCell.swift */; };
 		75E70DDD2724260100B7E964 /* NewsfeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E70DDC2724260100B7E964 /* NewsfeedCell.xib */; };
+		75E70DE027255AEB00B7E964 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E70DDF27255AEB00B7E964 /* WebImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,6 +67,7 @@
 		75E70DD727241F1A00B7E964 /* NewsfeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsfeedViewController.storyboard; sourceTree = "<group>"; };
 		75E70DDA272425BB00B7E964 /* NewsfeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCell.swift; sourceTree = "<group>"; };
 		75E70DDC2724260100B7E964 /* NewsfeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsfeedCell.xib; sourceTree = "<group>"; };
+		75E70DDF27255AEB00B7E964 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				757A1E2C27216C4E007D9C06 /* Services */,
 				753704B82722C27E0047A1C7 /* AuthViewController */,
 				75E70DC82724198600B7E964 /* Newsfeed */,
+				75E70DDE27255AB200B7E964 /* Helpers */,
 				7526924227203DFD004CC2F2 /* Assets.xcassets */,
 				7526924427203DFD004CC2F2 /* LaunchScreen.storyboard */,
 				7526924727203DFD004CC2F2 /* Info.plist */,
@@ -162,6 +165,14 @@
 				75E70DDC2724260100B7E964 /* NewsfeedCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		75E70DDE27255AB200B7E964 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				75E70DDF27255AEB00B7E964 /* WebImageView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +263,7 @@
 				7526923C27203DFC004CC2F2 /* SceneDelegate.swift in Sources */,
 				753704BA2722DB100047A1C7 /* NetworkService.swift in Sources */,
 				75E70DD3272419D100B7E964 /* NewsfeedModels.swift in Sources */,
+				75E70DE027255AEB00B7E964 /* WebImageView.swift in Sources */,
 				753704C127230E090047A1C7 /* NetworkDataFetcher.swift in Sources */,
 				75E70DD1272419D100B7E964 /* NewsfeedWorker.swift in Sources */,
 				757A1E2B27216C49007D9C06 /* AuthService.swift in Sources */,
