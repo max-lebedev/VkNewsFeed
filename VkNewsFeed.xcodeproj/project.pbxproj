@@ -17,6 +17,7 @@
 		753704BC2722DBF40047A1C7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753704BB2722DBF40047A1C7 /* API.swift */; };
 		753704BF27230B470047A1C7 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753704BE27230B470047A1C7 /* FeedResponse.swift */; };
 		753704C127230E090047A1C7 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753704C027230E090047A1C7 /* NetworkDataFetcher.swift */; };
+		75760C7E2726D9F20065EAFE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75760C7D2726D9F20065EAFE /* Constants.swift */; };
 		757A1E2B27216C49007D9C06 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A1E2A27216C49007D9C06 /* AuthService.swift */; };
 		757A1E2E27216E4F007D9C06 /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 757A1E2D27216E4F007D9C06 /* AuthViewController.storyboard */; };
 		75E70DD0272419D100B7E964 /* NewsfeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E70DC9272419D100B7E964 /* NewsfeedPresenter.swift */; };
@@ -29,6 +30,10 @@
 		75E70DDB272425BB00B7E964 /* NewsfeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E70DDA272425BB00B7E964 /* NewsfeedCell.swift */; };
 		75E70DDD2724260100B7E964 /* NewsfeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E70DDC2724260100B7E964 /* NewsfeedCell.xib */; };
 		75E70DE027255AEB00B7E964 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E70DDF27255AEB00B7E964 /* WebImageView.swift */; };
+		75E70DE22725924600B7E964 /* NewsfeedCellLayoutCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E70DE12725924600B7E964 /* NewsfeedCellLayoutCalculator.swift */; };
+		75E70DE42725A73200B7E964 /* String + Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E70DE32725A73200B7E964 /* String + Height.swift */; };
+		75E70DE62726ADC700B7E964 /* NewsfeedCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E70DE52726ADC700B7E964 /* NewsfeedCodeCell.swift */; };
+		75E70DE82726BE8500B7E964 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E70DE72726BE8500B7E964 /* Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +61,7 @@
 		753704BB2722DBF40047A1C7 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		753704BE27230B470047A1C7 /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
 		753704C027230E090047A1C7 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		75760C7D2726D9F20065EAFE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		757A1E2A27216C49007D9C06 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		757A1E2D27216E4F007D9C06 /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
 		75E70DC9272419D100B7E964 /* NewsfeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedPresenter.swift; sourceTree = "<group>"; };
@@ -68,6 +74,10 @@
 		75E70DDA272425BB00B7E964 /* NewsfeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCell.swift; sourceTree = "<group>"; };
 		75E70DDC2724260100B7E964 /* NewsfeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsfeedCell.xib; sourceTree = "<group>"; };
 		75E70DDF27255AEB00B7E964 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
+		75E70DE12725924600B7E964 /* NewsfeedCellLayoutCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCellLayoutCalculator.swift; sourceTree = "<group>"; };
+		75E70DE32725A73200B7E964 /* String + Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Height.swift"; sourceTree = "<group>"; };
+		75E70DE52726ADC700B7E964 /* NewsfeedCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCodeCell.swift; sourceTree = "<group>"; };
+		75E70DE72726BE8500B7E964 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				75E70DDA272425BB00B7E964 /* NewsfeedCell.swift */,
+				75E70DE12725924600B7E964 /* NewsfeedCellLayoutCalculator.swift */,
+				75760C7D2726D9F20065EAFE /* Constants.swift */,
+				75E70DE52726ADC700B7E964 /* NewsfeedCodeCell.swift */,
 				75E70DDC2724260100B7E964 /* NewsfeedCell.xib */,
 			);
 			path = Cell;
@@ -171,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				75E70DDF27255AEB00B7E964 /* WebImageView.swift */,
+				75E70DE32725A73200B7E964 /* String + Height.swift */,
+				75E70DE72726BE8500B7E964 /* Constraints.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -255,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				753704BF27230B470047A1C7 /* FeedResponse.swift in Sources */,
+				75E70DE42725A73200B7E964 /* String + Height.swift in Sources */,
 				75E70DD4272419D100B7E964 /* NewsfeedViewController.swift in Sources */,
 				7526923E27203DFC004CC2F2 /* AuthViewController.swift in Sources */,
 				7526923A27203DFC004CC2F2 /* AppDelegate.swift in Sources */,
@@ -263,6 +279,10 @@
 				7526923C27203DFC004CC2F2 /* SceneDelegate.swift in Sources */,
 				753704BA2722DB100047A1C7 /* NetworkService.swift in Sources */,
 				75E70DD3272419D100B7E964 /* NewsfeedModels.swift in Sources */,
+				75E70DE22725924600B7E964 /* NewsfeedCellLayoutCalculator.swift in Sources */,
+				75760C7E2726D9F20065EAFE /* Constants.swift in Sources */,
+				75E70DE62726ADC700B7E964 /* NewsfeedCodeCell.swift in Sources */,
+				75E70DE82726BE8500B7E964 /* Constraints.swift in Sources */,
 				75E70DE027255AEB00B7E964 /* WebImageView.swift in Sources */,
 				753704C127230E090047A1C7 /* NetworkDataFetcher.swift in Sources */,
 				75E70DD1272419D100B7E964 /* NewsfeedWorker.swift in Sources */,
