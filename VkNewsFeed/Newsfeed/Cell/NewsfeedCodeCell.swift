@@ -8,11 +8,18 @@
 import Foundation
 import UIKit
 
+protocol NewsfeedCodeCellDelegate: AnyObject {
+    func revealPost(for cell: NewsfeedCodeCell)
+}
+
 final class NewsfeedCodeCell: UITableViewCell {
     
     static let reuseId = "NewsfeedCodeCell"
     
-    // First layaer
+    weak var delegate: NewsfeedCodeCellDelegate?
+    
+    
+    //MARK: - First layaer
     let cardView: UIView = {
         
         let view = UIView()
@@ -22,7 +29,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         
     }()
     
-    // Second layer
+    //MARK: - Second layer
     let topView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -39,8 +46,19 @@ final class NewsfeedCodeCell: UITableViewCell {
         return label
     }()
     
+    let moreTextButton: UIButton = {
+        
+        let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        button.setTitleColor(#colorLiteral(red: 0.4, green: 0.6235294118, blue: 0.831372549, alpha: 1), for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.contentVerticalAlignment = .center
+        button.setTitle("Show more...", for: .normal)
+        return button
+    }()
+    
     let postImageView: WebImageView = {
-       
+        
         let imageView = WebImageView()
         imageView.backgroundColor = #colorLiteral(red: 0.8901960784, green: 0.8980392157, blue: 0.9098039216, alpha: 1)
         return imageView
@@ -52,7 +70,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         return view
     }()
     
-    // Third layer on topView
+    //MARK: - Third layer on topView
     let iconImageView: WebImageView = {
         let imageView = WebImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +97,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         return label
     }()
     
-    // Third layer on bottomView
+    //MARK: - Third layer on bottomView
     let likesView: UIView = {
         
         let view = UIView()
@@ -108,7 +126,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         return view
     }()
     
-    // Fourth layer on bottomView
+    //MARK: - Fourth layer on bottomView
     
     let likesImage: UIImageView = {
         let imageView = UIImageView()
@@ -183,8 +201,16 @@ final class NewsfeedCodeCell: UITableViewCell {
         return label
     }()
     
+    override func prepareForReuse() {
+        iconImageView.set(imageUrl: nil)
+        postImageView.set(imageUrl: nil)
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        iconImageView.layer.cornerRadius = Constants.topViewHeight / 2
+        iconImageView.clipsToBounds = true
         
         backgroundColor = .clear
         selectionStyle = .none
@@ -192,11 +218,17 @@ final class NewsfeedCodeCell: UITableViewCell {
         cardView.layer.cornerRadius = 10
         cardView.clipsToBounds = true
         
+        moreTextButton.addTarget(self, action: #selector(moreTextButtonTouch), for: .touchUpInside)
+        
         overlayFirstLayer()
         overlaySecondLayer()
         overlayThirdLayerOnTopView()
         overlayThirdLayerOnBottomView()
         overlayFourthLayerOnBottomViewViews()
+    }
+    
+    @objc func moreTextButtonTouch() {
+        delegate?.revealPost(for: self)
     }
     
     func set(viewModel: FeedCellViewModel) {
@@ -213,6 +245,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         postLabel.frame = viewModel.sizes.postLabelFrame
         postImageView.frame = viewModel.sizes.attachmentFrame
         bottomView.frame = viewModel.sizes.bottomViewFrame
+        moreTextButton.frame = viewModel.sizes.moreTextButtonFrame
         
         if let photoAttachment = viewModel.photoAttachment {
             postImageView.set(imageUrl: photoAttachment.photoUrlString)
@@ -221,6 +254,8 @@ final class NewsfeedCodeCell: UITableViewCell {
             postImageView.isHidden = true
         }
     }
+    
+    // MARK: - Constraints
     
     private func overlayFourthLayerOnBottomViewViews() {
         
@@ -235,12 +270,12 @@ final class NewsfeedCodeCell: UITableViewCell {
         
         viewsView.addSubview(viewsImage)
         viewsView.addSubview(viewsLabel)
-
+        
         helpInFourthLayer(view: likesView, imageView: likesImage, label: likesLabel)
         helpInFourthLayer(view: commentsView, imageView: commentsImage, label: commentsLabel)
         helpInFourthLayer(view: sharesView, imageView: sharesImage, label: sharesLabel)
         helpInFourthLayer(view: viewsView, imageView: viewsImage, label: viewsLabel)
-
+        
     }
     
     private func helpInFourthLayer(view: UIView, imageView: UIImageView, label: UILabel) {
@@ -250,8 +285,8 @@ final class NewsfeedCodeCell: UITableViewCell {
         imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: Constants.bottomViewViewsIconSize).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: Constants.bottomViewViewsIconSize).isActive = true
-
-
+        
+        
         // label constraints
         label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 4).isActive = true
@@ -271,31 +306,31 @@ final class NewsfeedCodeCell: UITableViewCell {
                          bottom: nil,
                          trailing: nil,
                          size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewHeight))
-
+        
         // commentsView constraints
-
+        
         commentsView.anchor(top: bottomView.topAnchor,
-                         leading: likesView.trailingAnchor,
-                         bottom: nil,
-                         trailing: nil,
-                         size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewHeight))
-
+                            leading: likesView.trailingAnchor,
+                            bottom: nil,
+                            trailing: nil,
+                            size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewHeight))
+        
         // sharesView constraints
-
+        
         sharesView.anchor(top: bottomView.topAnchor,
-                         leading: commentsView.trailingAnchor,
-                         bottom: nil,
-                         trailing: nil,
-                         size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewHeight))
-
+                          leading: commentsView.trailingAnchor,
+                          bottom: nil,
+                          trailing: nil,
+                          size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewHeight))
+        
         // viewsView constraints
-
+        
         viewsView.anchor(top: bottomView.topAnchor,
                          leading: nil,
                          bottom: nil,
                          trailing: bottomView.trailingAnchor,
                          size: CGSize(width: Constants.bottomViewViewWidth, height: Constants.bottomViewViewHeight))
-
+        
     }
     
     private func overlayThirdLayerOnTopView() {
@@ -309,19 +344,19 @@ final class NewsfeedCodeCell: UITableViewCell {
         iconImageView.topAnchor.constraint(equalTo: topView.topAnchor).isActive = true
         iconImageView.heightAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
         iconImageView.widthAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
-
+        
         // nameLabel constraints
         nameLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -8).isActive = true
         nameLabel.topAnchor.constraint(equalTo: topView.topAnchor, constant: 2).isActive = true
         nameLabel.heightAnchor.constraint(equalToConstant: Constants.topViewHeight / 2 - 2).isActive = true
-
+        
         // dateLabel constraints
         dateLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8).isActive = true
         dateLabel.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -8).isActive = true
         dateLabel.bottomAnchor.constraint(equalTo: topView.bottomAnchor, constant: -2).isActive = true
         dateLabel.heightAnchor.constraint(equalToConstant: 14).isActive = true
-
+        
         
     }
     
@@ -329,6 +364,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         
         cardView.addSubview(topView)
         cardView.addSubview(postLabel)
+        cardView.addSubview(moreTextButton)
         cardView.addSubview(postImageView)
         cardView.addSubview(bottomView)
         
@@ -339,6 +375,9 @@ final class NewsfeedCodeCell: UITableViewCell {
         topView.heightAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
         
         // postLabel constraints
+        // dynamic sizes
+        
+        // moreTextButton constraints
         // dynamic sizes
         
         // postImageView constraints

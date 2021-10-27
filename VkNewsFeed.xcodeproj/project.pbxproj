@@ -171,11 +171,11 @@
 		75E70DD92724259D00B7E964 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				75E70DDC2724260100B7E964 /* NewsfeedCell.xib */,
 				75E70DDA272425BB00B7E964 /* NewsfeedCell.swift */,
+				75E70DE52726ADC700B7E964 /* NewsfeedCodeCell.swift */,
 				75E70DE12725924600B7E964 /* NewsfeedCellLayoutCalculator.swift */,
 				75760C7D2726D9F20065EAFE /* Constants.swift */,
-				75E70DE52726ADC700B7E964 /* NewsfeedCodeCell.swift */,
-				75E70DDC2724260100B7E964 /* NewsfeedCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
