@@ -36,14 +36,26 @@ final class NewsfeedCodeCell: UITableViewCell {
         return view
     }()
     
-    let postLabel:UILabel = {
+//    let postLabel:UILabel = {
+//        let label = UILabel()
+//        label.numberOfLines = 0
+//        label.font = Constants.postLabelFont
+//        label.textColor = #colorLiteral(red: 0.2292772532, green: 0.2354183793, blue: 0.2405230999, alpha: 1)
+//        return label
+//    }()
+    
+    let postLabel: UITextView = {
+        let textView = UITextView()
+        textView.font = Constants.postLabelFont
+        textView.isScrollEnabled = false
+        textView.isSelectable = true
+        textView.isUserInteractionEnabled = true
+        textView.isEditable = false
         
-        let label = UILabel()
-        
-        label.numberOfLines = 0
-        label.font = Constants.postLabelFont
-        label.textColor = #colorLiteral(red: 0.2292772532, green: 0.2354183793, blue: 0.2405230999, alpha: 1)
-        return label
+        let padding = textView.textContainer.lineFragmentPadding
+        textView.textContainerInset = UIEdgeInsets.init(top: 0, left: -padding, bottom: 0, right: -padding)
+        textView.dataDetectorTypes = UIDataDetectorTypes.all
+        return textView
     }()
     
     let moreTextButton: UIButton = {
@@ -250,6 +262,10 @@ final class NewsfeedCodeCell: UITableViewCell {
         
         if self.galleryCollectionView.point(inside: convert(point, to: galleryCollectionView), with: event) {
             return self.galleryCollectionView
+        }
+        
+        if self.postLabel.point(inside: convert(point, to: postLabel), with: event) {
+            return self.postLabel
         }
         
         return super.hitTest(point, with: event)
