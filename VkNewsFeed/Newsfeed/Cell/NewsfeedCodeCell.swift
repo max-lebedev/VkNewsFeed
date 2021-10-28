@@ -57,6 +57,8 @@ final class NewsfeedCodeCell: UITableViewCell {
         return button
     }()
     
+    let galleryCollectionView = GalleryCollectionView()
+    
     let postImageView: WebImageView = {
         
         let imageView = WebImageView()
@@ -164,7 +166,6 @@ final class NewsfeedCodeCell: UITableViewCell {
         
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "454K"
         label.textColor = #colorLiteral(red: 0.5058823529, green: 0.5490196078, blue: 0.6, alpha: 1)
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         label.lineBreakMode = .byClipping
@@ -218,7 +219,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         cardView.layer.cornerRadius = 10
         cardView.clipsToBounds = true
         
-        moreTextButton.addTarget(self, action: #selector(moreTextButtonTouch), for: .touchUpInside)
+        self.moreTextButton.addTarget(self, action: #selector(moreTextButtonTouch), for: .touchUpInside)
         
         overlayFirstLayer()
         overlaySecondLayer()
@@ -229,6 +230,29 @@ final class NewsfeedCodeCell: UITableViewCell {
     
     @objc func moreTextButtonTouch() {
         delegate?.revealPost(for: self)
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+
+        guard isUserInteractionEnabled else { return nil }
+
+        guard !isHidden else { return nil }
+
+        guard alpha >= 0.01 else { return nil }
+
+        guard self.point(inside: point, with: event) else { return nil }
+
+        
+        // add one of these blocks for each button in our collection view cell we want to actually work
+        if self.moreTextButton.point(inside: convert(point, to: moreTextButton), with: event) {
+            return self.moreTextButton
+        }
+        
+        if self.galleryCollectionView.point(inside: convert(point, to: galleryCollectionView), with: event) {
+            return self.galleryCollectionView
+        }
+        
+        return super.hitTest(point, with: event)
     }
     
     func set(viewModel: FeedCellViewModel) {
@@ -243,17 +267,29 @@ final class NewsfeedCodeCell: UITableViewCell {
         viewsLabel.text = viewModel.views
         
         postLabel.frame = viewModel.sizes.postLabelFrame
-        postImageView.frame = viewModel.sizes.attachmentFrame
+        
         bottomView.frame = viewModel.sizes.bottomViewFrame
         moreTextButton.frame = viewModel.sizes.moreTextButtonFrame
         
-        if let photoAttachment = viewModel.photoAttachment {
+        
+        if let photoAttachment = viewModel.photoAttachments.first, viewModel.photoAttachments.count == 1 {
             postImageView.set(imageUrl: photoAttachment.photoUrlString)
             postImageView.isHidden = false
-        } else {
+            galleryCollectionView.isHidden = true
+            postImageView.frame = viewModel.sizes.attachmentFrame
+        } else if viewModel.photoAttachments.count > 1 {
+            galleryCollectionView.frame = viewModel.sizes.attachmentFrame
             postImageView.isHidden = true
+            galleryCollectionView.isHidden = false
+            galleryCollectionView.set(photos: viewModel.photoAttachments)
+        }
+        else {
+            postImageView.isHidden = true
+            galleryCollectionView.isHidden = true
         }
     }
+    
+    
     
     // MARK: - Constraints
     
@@ -366,6 +402,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         cardView.addSubview(postLabel)
         cardView.addSubview(moreTextButton)
         cardView.addSubview(postImageView)
+        cardView.addSubview(galleryCollectionView)
         cardView.addSubview(bottomView)
         
         // topView constraints

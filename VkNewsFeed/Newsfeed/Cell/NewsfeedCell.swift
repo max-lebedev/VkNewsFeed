@@ -17,7 +17,7 @@ protocol FeedCellViewModel {
     var comments: String? { get }
     var shares: String? { get }
     var views: String? { get }
-    var photoAttachment: FeedCellPhotoAttachmentViewModel? { get }
+    var photoAttachments: [FeedCellPhotoAttachmentViewModel] { get }
     var sizes: FeedCellSizes { get }
     
 }
@@ -70,6 +70,7 @@ class NewsfeedCell: UITableViewCell {
         selectionStyle = .none
     }
     
+    /*
     func set(viewModel: FeedCellViewModel) {
         iconImageView.set(imageUrl: viewModel.iconUrlString)
         nameLabel.text = viewModel.name
@@ -91,4 +92,5 @@ class NewsfeedCell: UITableViewCell {
             postImageView.isHidden = true
         }
     }
+ */
 }

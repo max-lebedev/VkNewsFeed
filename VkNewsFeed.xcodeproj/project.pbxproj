@@ -34,6 +34,9 @@
 		75E70DE42725A73200B7E964 /* String + Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E70DE32725A73200B7E964 /* String + Height.swift */; };
 		75E70DE62726ADC700B7E964 /* NewsfeedCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E70DE52726ADC700B7E964 /* NewsfeedCodeCell.swift */; };
 		75E70DE82726BE8500B7E964 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E70DE72726BE8500B7E964 /* Constraints.swift */; };
+		75F773B42729729C005C10A7 /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F773B32729729C005C10A7 /* GalleryCollectionView.swift */; };
+		75F773B62729739B005C10A7 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F773B52729739B005C10A7 /* GalleryCollectionViewCell.swift */; };
+		75F773B827298FA5005C10A7 /* Rowlayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F773B727298FA5005C10A7 /* Rowlayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +81,9 @@
 		75E70DE32725A73200B7E964 /* String + Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Height.swift"; sourceTree = "<group>"; };
 		75E70DE52726ADC700B7E964 /* NewsfeedCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCodeCell.swift; sourceTree = "<group>"; };
 		75E70DE72726BE8500B7E964 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		75F773B32729729C005C10A7 /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
+		75F773B52729739B005C10A7 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		75F773B727298FA5005C10A7 /* Rowlayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rowlayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +162,7 @@
 		75E70DC82724198600B7E964 /* Newsfeed */ = {
 			isa = PBXGroup;
 			children = (
+				75F773B227297267005C10A7 /* GalleryView */,
 				75E70DD92724259D00B7E964 /* Cell */,
 				75E70DD727241F1A00B7E964 /* NewsfeedViewController.storyboard */,
 				75E70DCD272419D100B7E964 /* NewsfeedViewController.swift */,
@@ -188,6 +195,16 @@
 				75E70DE72726BE8500B7E964 /* Constraints.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		75F773B227297267005C10A7 /* GalleryView */ = {
+			isa = PBXGroup;
+			children = (
+				75F773B32729729C005C10A7 /* GalleryCollectionView.swift */,
+				75F773B52729739B005C10A7 /* GalleryCollectionViewCell.swift */,
+				75F773B727298FA5005C10A7 /* Rowlayout.swift */,
+			);
+			path = GalleryView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,10 +286,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75F773B827298FA5005C10A7 /* Rowlayout.swift in Sources */,
 				753704BF27230B470047A1C7 /* FeedResponse.swift in Sources */,
 				75E70DE42725A73200B7E964 /* String + Height.swift in Sources */,
 				75E70DD4272419D100B7E964 /* NewsfeedViewController.swift in Sources */,
 				7526923E27203DFC004CC2F2 /* AuthViewController.swift in Sources */,
+				75F773B62729739B005C10A7 /* GalleryCollectionViewCell.swift in Sources */,
 				7526923A27203DFC004CC2F2 /* AppDelegate.swift in Sources */,
 				75E70DD0272419D100B7E964 /* NewsfeedPresenter.swift in Sources */,
 				75E70DD2272419D100B7E964 /* NewsfeedRouter.swift in Sources */,
@@ -288,6 +307,7 @@
 				75E70DD1272419D100B7E964 /* NewsfeedWorker.swift in Sources */,
 				757A1E2B27216C49007D9C06 /* AuthService.swift in Sources */,
 				753704BC2722DBF40047A1C7 /* API.swift in Sources */,
+				75F773B42729729C005C10A7 /* GalleryCollectionView.swift in Sources */,
 				75E70DDB272425BB00B7E964 /* NewsfeedCell.swift in Sources */,
 				75E70DD5272419D100B7E964 /* NewsfeedInteractor.swift in Sources */,
 			);
