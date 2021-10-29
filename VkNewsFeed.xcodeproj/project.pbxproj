@@ -40,6 +40,9 @@
 		75F773BB272AD8FD005C10A7 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F773BA272AD8FD005C10A7 /* TitleView.swift */; };
 		75F773BD272AD9E6005C10A7 /* InsetableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F773BC272AD9E6005C10A7 /* InsetableTextField.swift */; };
 		75F773BF272AED46005C10A7 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F773BE272AED46005C10A7 /* UserResponse.swift */; };
+		75F773C2272BFBE5005C10A7 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F773C1272BFBE5005C10A7 /* FooterView.swift */; };
+		75F773C4272C0098005C10A7 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 75F773C3272C0098005C10A7 /* Localizable.stringsdict */; };
+		75F773C6272C0446005C10A7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F773C5272C0446005C10A7 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +93,9 @@
 		75F773BA272AD8FD005C10A7 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		75F773BC272AD9E6005C10A7 /* InsetableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetableTextField.swift; sourceTree = "<group>"; };
 		75F773BE272AED46005C10A7 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		75F773C1272BFBE5005C10A7 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		75F773C3272C0098005C10A7 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
+		75F773C5272C0446005C10A7 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +138,7 @@
 				7526924227203DFD004CC2F2 /* Assets.xcassets */,
 				7526924427203DFD004CC2F2 /* LaunchScreen.storyboard */,
 				7526924727203DFD004CC2F2 /* Info.plist */,
+				75F773C3272C0098005C10A7 /* Localizable.stringsdict */,
 			);
 			path = VkNewsFeed;
 			sourceTree = "<group>";
@@ -169,6 +176,7 @@
 		75E70DC82724198600B7E964 /* Newsfeed */ = {
 			isa = PBXGroup;
 			children = (
+				75F773C0272BFBD4005C10A7 /* FooterView */,
 				75F773B9272AD8E0005C10A7 /* TitleView */,
 				75F773B227297267005C10A7 /* GalleryView */,
 				75E70DD92724259D00B7E964 /* Cell */,
@@ -201,6 +209,7 @@
 				75E70DDF27255AEB00B7E964 /* WebImageView.swift */,
 				75E70DE32725A73200B7E964 /* String + Height.swift */,
 				75E70DE72726BE8500B7E964 /* Constraints.swift */,
+				75F773C5272C0446005C10A7 /* GradientView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -222,6 +231,14 @@
 				75F773BC272AD9E6005C10A7 /* InsetableTextField.swift */,
 			);
 			path = TitleView;
+			sourceTree = "<group>";
+		};
+		75F773C0272BFBD4005C10A7 /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				75F773C1272BFBE5005C10A7 /* FooterView.swift */,
+			);
+			path = FooterView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +310,7 @@
 				75E70DD827241F1A00B7E964 /* NewsfeedViewController.storyboard in Resources */,
 				7526924327203DFD004CC2F2 /* Assets.xcassets in Resources */,
 				75E70DDD2724260100B7E964 /* NewsfeedCell.xib in Resources */,
+				75F773C4272C0098005C10A7 /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75F773B827298FA5005C10A7 /* Rowlayout.swift in Sources */,
+				75F773C2272BFBE5005C10A7 /* FooterView.swift in Sources */,
 				753704BF27230B470047A1C7 /* FeedResponse.swift in Sources */,
 				75E70DE42725A73200B7E964 /* String + Height.swift in Sources */,
 				75E70DD4272419D100B7E964 /* NewsfeedViewController.swift in Sources */,
@@ -328,6 +347,7 @@
 				753704BC2722DBF40047A1C7 /* API.swift in Sources */,
 				75F773B42729729C005C10A7 /* GalleryCollectionView.swift in Sources */,
 				75E70DDB272425BB00B7E964 /* NewsfeedCell.swift in Sources */,
+				75F773C6272C0446005C10A7 /* GradientView.swift in Sources */,
 				75E70DD5272419D100B7E964 /* NewsfeedInteractor.swift in Sources */,
 				75F773BD272AD9E6005C10A7 /* InsetableTextField.swift in Sources */,
 			);
